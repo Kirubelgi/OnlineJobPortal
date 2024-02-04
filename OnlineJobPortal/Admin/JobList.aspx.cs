@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -73,14 +74,16 @@ namespace OnlineJobPortal.Admin
                     lblMsg.Text = "Cannot delete this record!";
                     lblMsg.CssClass = "alert alert-danger";
                 }
-                con.Close();
                 GridView1.EditIndex = -1;
                 ShowJob();
             }
             catch (Exception ex)
             {
-                con.Close();
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+            finally
+            {
+                con.Close();
             }
         }
 
@@ -89,6 +92,23 @@ namespace OnlineJobPortal.Admin
             if(e.CommandName == "EditJob")
             {
                 Response.Redirect("NewJob.aspx?id=" + e.CommandArgument.ToString());
+            }
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.ID = e.Row.RowIndex.ToString();
+                if (Request.QueryString["id"] != null)
+                {
+                    int jobId = Convert.ToInt32(GridView1.DataKeys[e.Row.RowIndex].Values[0]);
+                    if(jobId == Convert.ToInt32(Request.QueryString["id"]))
+                    {
+                        e.Row.BackColor = Color.LightBlue;
+                        
+                    }
+                }
             }
         }
     }
