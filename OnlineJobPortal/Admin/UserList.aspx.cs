@@ -7,11 +7,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using OnlineJobPortal.User;
 
 namespace OnlineJobPortal.Admin
 {
-    public partial class ContactList : System.Web.UI.Page
+    public partial class UserList : System.Web.UI.Page
     {
         SqlConnection con;
         SqlCommand cmd;
@@ -26,15 +25,14 @@ namespace OnlineJobPortal.Admin
 
             if (!IsPostBack)
             {
-                ShowContact();
+                ShowUsers();
             }
         }
-
-        private void ShowContact()
+        private void ShowUsers()
         {
             string query = string.Empty;
             con = new SqlConnection(str);
-            query = @"Select Row_Number() over(Order by (select 1)) as [Sr.No],ContactId, Name, Email, Subject, Message from Contact";
+            query = @"Select Row_Number() over(Order by (select 1)) as [Sr.No],UserId, Name, Email, Phone, Country from [User]";
             cmd = new SqlCommand(query, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -46,7 +44,7 @@ namespace OnlineJobPortal.Admin
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            ShowContact();
+            ShowUsers();
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -54,10 +52,10 @@ namespace OnlineJobPortal.Admin
             try
             {
                 GridViewRow row = GridView1.Rows[e.RowIndex];
-                int contactId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+                int userId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
                 con = new SqlConnection(str);
-                cmd = new SqlCommand("Delete from Contact where ContactId = @id", con);
-                cmd.Parameters.AddWithValue("@id", contactId);
+                cmd = new SqlCommand("Delete from [User] where UserId = @id", con);
+                cmd.Parameters.AddWithValue("@id", userId);
                 con.Open();
                 int r = cmd.ExecuteNonQuery();
                 if (r > 0)
@@ -71,7 +69,7 @@ namespace OnlineJobPortal.Admin
                     lblMsg.CssClass = "alert alert-danger";
                 }
                 GridView1.EditIndex = -1;
-                ShowContact();
+                ShowUsers();
             }
             catch (Exception ex)
             {
