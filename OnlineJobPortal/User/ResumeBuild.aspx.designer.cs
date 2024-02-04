@@ -60,13 +60,13 @@ namespace OnlineJobPortal.User
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
-        /// txtPhoneNumber control.
+        /// txtPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtPhone;
 
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -139,6 +139,15 @@ namespace OnlineJobPortal.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGraduation;
+
+        /// <summary>
+        /// txtPostGraduation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPostGraduation;
 
         /// <summary>
         /// txtPhd control.

@@ -13,14 +13,14 @@
                 <div class="col-12">
                     <h2 class="contact-title text-center">Build Resume</h2>
                 </div>
-                <div class="col-lg-6 mx-auto">
+                <div class="col-lg-12 ">
                     <div class="form-contact contact_form">
                         <div class="row">
                             <div class="col-12">
                                 <h6>Personal Information</h6>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Full Name</label>
                                     <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" placeholder="Enter Full Name" required></asp:TextBox>
@@ -30,32 +30,32 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Username</label>
                                     <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" placeholder="Enter Unique Username" required></asp:TextBox>
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter Address" TextMode="MultiLine" required>
+                                    <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter Address"   required>
                                     </asp:TextBox>
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Phone Number</label>
-                                    <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" placeholder="Enter Phone Number" required></asp:TextBox>
+                                    <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" placeholder="Enter Phone Number" required></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Phone No. must have 10 digits" ForeColor="Red"
-                                        Display="Dynamic" SetFocusOnError="true" Font-Size="Small" ValidationExpression="^[0-9]{10}$" ControlToValidate="txtPhoneNumber">
+                                        Display="Dynamic" SetFocusOnError="true" Font-Size="Small" ValidationExpression="^[0-9]{10}$" ControlToValidate="txtPhone">
                                     </asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Enter Email" required
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Country</label>
                                     <asp:DropDownList ID="ddlCountry" runat="server" DataSourceID="SqlDataSource1" CssClass="form-control w-100"
@@ -100,7 +100,15 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Graduation with Grade</label>
-                                    <asp:TextBox ID="txtGraduation" runat="server" CssClass="form-control" placeholder="Ex: Bcs with 3.5" required>
+                                    <asp:TextBox ID="txtGraduation" runat="server" CssClass="form-control" placeholder="Ex: Bsc with 3.5" required>
+                                    </asp:TextBox>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Post Graduation with Grade</label>
+                                    <asp:TextBox ID="txtPostGraduation" runat="server" CssClass="form-control" placeholder="Ex: Msc with 3.7" required>
                                     </asp:TextBox>
                                 </div>
                             </div>
@@ -126,7 +134,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Work Experience</label>
-                                    <asp:TextBox ID="txtExperience" runat="server" CssClass="form-control" placeholder="JWork Experienxe" required>
+                                    <asp:TextBox ID="txtExperience" runat="server" CssClass="form-control" placeholder="Work Experience" required>
                                     </asp:TextBox>
                                 </div>
                             </div>
@@ -134,7 +142,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label>Resume</label>
-                                    <asp:FileUpload ID="fuResume" runat="server" CssClass="form-control pt-2" 
+                                    <asp:FileUpload ID="fuResume" runat="server" CssClass="form-control pt-2"
                                         ToolTip=".doc, .dox, .pdf extension only" />
                                 </div>
                             </div>
